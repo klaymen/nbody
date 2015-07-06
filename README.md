@@ -16,7 +16,7 @@ N-body is a framework and some predefined (most probably) somehow interesting ex
 
 (Please note, that the version numbers are only informative, the framework might run flawlessly even with older packages.)  
 (Also, there might be some hidden dependencies, which I'm not aware of, if you found any, please let me know.)  
-(I like parentheses)  
+(I like parentheses.)  
 
 Aaaand, it's done.
 
