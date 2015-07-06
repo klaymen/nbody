@@ -5,7 +5,7 @@ N-body is a framework and some predefined (most probably) somehow interesting ex
 **System Requirements:**
    * Windows XP/7/8/8.1
    * OSX (Tried with Yosemite 10.10.4)
-   * Linux (Ubuntu)
+   * Linux (For installing the third party dependencies you might need to install pip as well. And some other system level dependencies (libfreetype6-dev and libxft-dev). Will see.)
    * More to come?
 
 **Third party dependencies:**
