@@ -1,6 +1,6 @@
 # Hello stranger,
 
-N-body is a framework and some predefined (most probably) somehow interesting experiments. The whole bunch of code is written in Python.
+N-body is a framework and some predefined (most probably) somewhat interesting experiments. The whole bunch of code is written in Python.
 
 ## System Requirements:
    * Windows XP/7/8/8.1
