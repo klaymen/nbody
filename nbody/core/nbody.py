@@ -39,7 +39,7 @@ class Nbody(object):
           
             # Acceleration = Force/mass
             acc[d] = force[d]/body1.mass
-        
+            
         return acc
 
     def step(self, dt):
@@ -51,7 +51,7 @@ class Nbody(object):
         for body1 in self.bodies:
 
             # Reset accelerations for the new step
-            body1.acl = [0.0, 0.0]
+            body1.acl = [0.0] * self.dimension
 
             for body2 in self.bodies:
                 if body2 != body1:
