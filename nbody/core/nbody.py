@@ -62,10 +62,9 @@ class Nbody(object):
                         body1.acl[d] += acl[d]
 
         # Update velocities and positions (Forward Euler)
-        for body in self.bodies:
             for d in range(self.dimension):
-                body.vel[d] += body.acl[d] * dt
-                body.pos[d] += body.vel[d] * dt
+                body1.vel[d] += body1.acl[d] * dt
+                body1.pos[d] += body1.vel[d] * dt
 
         self.elapsedTime += dt # Update elapsed time
         
