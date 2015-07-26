@@ -19,7 +19,7 @@ class Nbody(object):
         # body1 - body being accelerated
         # body2 - body that exerts it's gravitational pull on the other
 
-        # Fx = (G * body1 * body2)(x1 - x2)/(distance^3)
+        # Fx = (G * mass1 * mass2)(x2 - x1)/(distance^3)
         distance = body1.getDistance(body2)
         total_force =  self.G * body1.mass * body2.mass
         total_force /= distance**2
@@ -28,17 +28,15 @@ class Nbody(object):
         acc   = [0.0] * self.dimension
         
         for d in range(self.dimension):
-            force[d] = (abs(body1.pos[d] - body2.pos[d]))*total_force/distance
+        
+            # Force in the dth dimension (considering the direction as well)
+            force[d] = (body2.pos[d] - body1.pos[d])*total_force/distance
         
             # Prevent unreasonably large accelerations 
             # by limiting the minimum distance.
             if -self.minDist < body2.pos[d] - body1.pos[d] < self.minDist:
                 force[d] = 0.0
-
-            # Set the directions of the forces
-            if (body1.pos[d] - body2.pos[d]) > 0.0:
-                force[d] = force[d] * -1
-            
+          
             # Acceleration = Force/mass
             acc[d] = force[d]/body1.mass
         
