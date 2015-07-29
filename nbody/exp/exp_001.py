@@ -17,8 +17,9 @@ class Dataset(object):
 									'Earth'))
 
 		self.skipFrames 		= 0
-		self.timeStep 			= 20000
+		self.timeStep 			= 1000
 		self.plotSize 			= 1000000000
 		self.annotationShift 	= self.plotSize/25.0
 		self.markSizes 			= [50,400]
-		self.lockedBody 		= 1
+		self.lockedBody 		= -1
+		self.dataTodisplay		= "TotalImpulse"

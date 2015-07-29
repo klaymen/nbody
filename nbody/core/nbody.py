@@ -84,3 +84,6 @@ class Nbody(object):
         
     def getColors(self):
         return [i.colr for i in self.bodies]
+
+    def getTotalImpulse(self):
+    	return sum([i.mass*c for i in self.bodies for c in i.getSpeed()])

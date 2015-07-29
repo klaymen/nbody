@@ -1,10 +1,12 @@
 from sys import platform as _platform
 from matplotlib import use
-if _platform =='darwin':
-    use('MacOSX') # Use Cocoa rendering for OS X
-else:
+
+try:
     use('GTKAgg') # Use gtk as a faster back-end  
-    
+except:
+    if _platform =='darwin':
+        use('MacOSX') # Use Cocoa rendering for OS X
+
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib.lines as lines
@@ -19,7 +21,7 @@ utils.addSubfolderToPath("exp")
 from body import Body
 from nbody import Nbody
 
-experiment = importlib.import_module("exp_003")
+experiment = importlib.import_module("exp_001")
 
 exp = experiment.Dataset()
 sim = Nbody(exp.bodies)
@@ -73,11 +75,15 @@ def update_plot(i, scat, exp, sim, annotation, titles, ax):
     for body in range(len(exp.bodies)):
         annotation[body].xyann = (data[0][body] + exp.annotationShift,data[1][body] + exp.annotationShift)
     
-    titles[2].set_text(str(sim.elapsedTime/60/60/24) + ' day(s)')
+    titles[2].set_text(utils.getScaledElapsedTime(sim.elapsedTime))
     
     names = '(' + exp.bodies[0].name + ', ' + exp.bodies[1].name + ')'
-    titles[1].set_text('D' + names + '=' + str(int(exp.bodies[0].getDistance(exp.bodies[1])/1000)) + ' km')
 
+    if exp.dataToDisplay is "Total Impulse":
+        titles[1].set_text(sim.getTotalImpulse())
+    else:
+        titles[1].set_text('D' + names + '=' + str(int(exp.bodies[0].getDistance(exp.bodies[1])/1000)) + ' km')
+        
     if exp.lockedBody > -1:
         ax.set_xlim([exp.bodies[exp.lockedBody].pos[0]-exp.plotSize, 
                      exp.bodies[exp.lockedBody].pos[0]+exp.plotSize])

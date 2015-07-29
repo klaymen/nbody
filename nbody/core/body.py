@@ -21,7 +21,11 @@ class Body(object):
 
     def getDistance(self, body):
         # Compute the distance from an other body
+        # TODO: should be n dimensional
         return  sqrt((self.pos[0]-body.pos[0])**2 + (self.pos[1]-body.pos[1])**2)
-    
+
     def getDimension(self):
         return min(len(self.pos), len(self.vel))
+
+    def getSpeed(self):
+        return [c for c in self.vel]

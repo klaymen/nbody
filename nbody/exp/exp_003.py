@@ -31,7 +31,7 @@ class Dataset(object):
 		self.gravitationalConstant = 1
 		self.minDist = 0
 		self.skipFrames 		= 0
-		self.timeStep 			= 0.01
+		self.timeStep 			= 0.001
 		self.plotSize 			= 2.0
 		self.annotationShift 	= self.plotSize/25.0
 		self.markSizes 			= [50,200]

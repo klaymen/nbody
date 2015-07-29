@@ -25,7 +25,7 @@ class Dataset(object):
 									str(i+1)))
 
 		self.skipFrames 		= 0
-		self.timeStep 			= 20000
+		self.timeStep 			= 10000
 		self.plotSize 			= 1000000000
 		self.annotationShift 	= self.plotSize/25.0
 		self.markSizes 			= [50,400]
